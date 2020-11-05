@@ -22,7 +22,7 @@ public class Cuenta {
         mNumero = numero;
         mTitular = titular;
         mMovimientos = new Vector();
-        Saldo=0;
+        Saldo=1000;
     }
 
     public void ingresar(double x) throws Exception {
