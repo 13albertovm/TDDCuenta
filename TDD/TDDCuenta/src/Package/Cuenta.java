@@ -21,7 +21,7 @@ public class Cuenta {
     public Cuenta(String numero, String titular) {
         mNumero = numero;
         mTitular = titular;
-        mMovimientos = new Vector();
+        mMovimientos = (List<Movimiento>) new Vector();
         Saldo=1000;
     }
 

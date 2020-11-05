@@ -13,16 +13,13 @@ import java.util.List;
  */
 public class Vector {
     protected List<Movimiento> vect;
-    int objetos;
     
     public Vector(){
         //posible fallo
         vect=null;
-        objetos=0;
     }
     
     public void add(Movimiento m){
         vect.add(m);
-        objetos++;
     }
 }
