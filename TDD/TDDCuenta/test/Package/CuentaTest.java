@@ -70,9 +70,9 @@ public class CuentaTest {
      * Test of retirar method, of class Cuenta.
      */
     @Test
-    public void testRetirar() throws Exception {
+    public void testRetirarNegativo() throws Exception {
         System.out.println("retirar");
-        double x = 1000.0;
+        double x = -1000.0;
         Cuenta instance = new Cuenta("3", "Julia");
         try {
             instance.retirar(x);
@@ -129,10 +129,10 @@ public class CuentaTest {
     @Test
     public void testSetSaldo() {
         System.out.println("setSaldo");
-        double Saldo = 0.0;
+        double Saldo = 10.0;
         Cuenta instance = new Cuenta("7","Probando");
         instance.setSaldo(Saldo);
-        
+        assertTrue(instance.getSaldo()==Saldo);
     }
 
 }
