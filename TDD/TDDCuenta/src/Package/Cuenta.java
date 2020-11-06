@@ -15,37 +15,39 @@ public class Cuenta {
     
     protected String mNumero;
     protected String mTitular;
-    protected List<Movimiento> mMovimientos;
-    private double Saldo;
+    protected Vector mMovimientos;
+    private static double Saldo;
 
     public Cuenta(String numero, String titular) {
         mNumero = numero;
         mTitular = titular;
-        mMovimientos = (List<Movimiento>) new Vector();
-        Saldo=1000;
+        mMovimientos = new Vector();
+        Saldo=0;
     }
 
     public void ingresar(double x) throws Exception {
-        if (x <= 0) {
+        if (x < 0) {
             throw new Exception("No se puede ingresar una cantidad negativa");
         }
         Movimiento m = new Movimiento();
         m.setConcepto("Ingreso en efectivo");
+        Saldo+=x;
         m.setImporte(x);
-        this.mMovimientos.add(m);
+        //this.mMovimientos.add(m);
     }
 
     public void retirar(double x) throws Exception {
         if (x <= 0) {
-            throw new Exception("No se puede retirar una cantidadn negativa");
+            throw new Exception("No se puede retirar una cantidad negativa");
         }
         if (getSaldo() < x) {
             throw new Exception("Saldo insuficiente");
         }
+        Saldo-=x;
         Movimiento m = new Movimiento();
         m.setConcepto("Retirada de efectivo");
         m.setImporte(-x);
-        this.mMovimientos.add(m);
+        //this.mMovimientos.add(m);
     }
 
     /**
